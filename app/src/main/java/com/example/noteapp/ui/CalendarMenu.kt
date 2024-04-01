@@ -80,9 +80,15 @@ fun DaysGrid() {
                 // Loop through the days of the week
                 for (i in 1..7) {
                     val isCurrentMonth = calendarStartDate.month == currentMonthFirstDay.month
-                    val boxColor = if (isCurrentMonth) Color.LightGray else Color.Green
-
                     val date = calendarStartDate // 날짜 저장
+
+                    val boxColor = if (isCurrentMonth && calendarStartDate == NoteVariables.selectedDate) {
+                        Color.Red // Set to red if it's the selected date
+                    } else if (isCurrentMonth) {
+                        Color.LightGray // Set to light gray for other days of the current month
+                    } else {
+                        Color.Green // Set to green for dates outside the current month
+                    }
 
                     Box(
                         modifier = Modifier
