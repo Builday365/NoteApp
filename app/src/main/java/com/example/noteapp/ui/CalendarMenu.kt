@@ -9,11 +9,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,13 +25,22 @@ import com.example.noteapp.data.NoteVariables
 
 // Composable function to display the calendar menu
 @Composable
-fun CalendarMenu() {
+fun CalendarMenu(
+    onDismiss: () -> Unit
+) {
     // List of weekdays
     val datesList = listOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
     // Display weekdays row
     WeekdaysRow(datesList = datesList)
     // Display days grid
     DaysGrid()
+
+    // Box to cover the entire screen and dismiss the calendar on click
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable(onClick = onDismiss)
+    ) {}
 }
 
 // Composable function to display the row of weekdays
@@ -72,6 +83,7 @@ fun WeekdaysRow(datesList: List<String>) {
 // Composable function to display the days grid of the calendar
 @Composable
 fun DaysGrid() {
+    val noteVariables = remember { NoteVariables() } // NoteVariables 클래스의 인스턴스 생성
     // Get the first day of the current month
     val currentMonthFirstDay = NoteVariables.selectedDate.withDayOfMonth(1)
     // Get the last day of the current month
@@ -92,7 +104,7 @@ fun DaysGrid() {
     Log.d("DatePicker", "=========================================================")
 
     // Column to hold the days grid
-    Column {
+    Column{
         // Loop through the weeks
         while (calendarStartDate <= lastDayOfMonth) {
             // Row to hold each week

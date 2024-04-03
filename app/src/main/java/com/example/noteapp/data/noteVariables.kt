@@ -8,6 +8,9 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 
 class NoteVariables {
+
+    // isCalendarVisible 변수를 MutableState<Boolean>으로 수정
+    //var isCalendarVisible: MutableState<Boolean> = mutableStateOf(false)
     companion object {
         var currentDate: LocalDate by mutableStateOf(LocalDate.now())
         var selectedDate: LocalDate by mutableStateOf(LocalDate.now())

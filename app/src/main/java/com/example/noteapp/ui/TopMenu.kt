@@ -125,8 +125,8 @@ fun TopMenu(){
             .height(1.dp)
             .background(color = Color(0XFF777777))
         )
-        if (isCalendarVisible) {    // 달력 아이콘을 클릭하면 DatePicker가 호출됩니다.
-            CalendarMenu() // 변경된 부분
+        if (isCalendarVisible) {
+            CalendarMenu(onDismiss = { isCalendarVisible = false })
         }
     }
 }
