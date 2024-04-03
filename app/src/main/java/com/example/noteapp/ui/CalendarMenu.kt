@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -83,7 +82,6 @@ fun WeekdaysRow(datesList: List<String>) {
 // Composable function to display the days grid of the calendar
 @Composable
 fun DaysGrid() {
-    val noteVariables = remember { NoteVariables() } // NoteVariables 클래스의 인스턴스 생성
     // Get the first day of the current month
     val currentMonthFirstDay = NoteVariables.selectedDate.withDayOfMonth(1)
     // Get the last day of the current month
