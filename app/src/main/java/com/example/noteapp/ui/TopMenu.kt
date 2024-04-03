@@ -14,10 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -37,11 +33,9 @@ import java.util.Locale
 @Composable
 
 fun TopMenu(){
-    var isCalendarVisible by remember { mutableStateOf(false) }
 
     /* 변수를 class로 분리함
     var currentDate by remember { mutableStateOf(LocalDate.now()) } // 현재 날짜를 기억 하는 변수
-
     val iconResId = when (currentDate.dayOfWeek) {  // Check the current day of the week and select a vector image accordingly.
         DayOfWeek.MONDAY -> R.drawable.calendar_mon
         DayOfWeek.TUESDAY -> R.drawable.calendar_tue
@@ -116,7 +110,7 @@ fun TopMenu(){
                 modifier = Modifier
                     .size(32.dp)    // Icon size set
                     .padding(0.dp)
-                    .clickable { isCalendarVisible = !isCalendarVisible },
+                    .clickable { NoteVariables.isCalendarVisible = !NoteVariables.isCalendarVisible },
                 tint = Color.Unspecified,   // SVG Original color
                 contentDescription = "Calendar Icon")
         }
@@ -125,8 +119,8 @@ fun TopMenu(){
             .height(1.dp)
             .background(color = Color(0XFF777777))
         )
-        if (isCalendarVisible) {
-            CalendarMenu(onDismiss = { isCalendarVisible = false })
+        if (NoteVariables.isCalendarVisible) {
+            CalendarMenu(onDismiss = { NoteVariables.isCalendarVisible = false })
         }
     }
 }
