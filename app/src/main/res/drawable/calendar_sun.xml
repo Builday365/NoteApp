@@ -83,8 +83,8 @@
       android:pathData="M12.5,15.75C12.5,15.198 12.948,14.75 13.5,14.75C14.052,14.75 14.5,15.198 14.5,15.75C14.5,16.302 14.052,16.75 13.5,16.75C12.948,16.75 12.5,16.302 12.5,15.75Z"
       android:strokeLineJoin="round"
       android:strokeWidth="0.1"
-      android:fillColor="#f15c80"
+      android:fillColor="#f15c80 "
       android:fillType="nonZero"
-      android:strokeColor="#f15c80"
+      android:strokeColor="#f15c80 "
       android:strokeLineCap="butt"/>
 </vector>
