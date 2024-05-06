@@ -113,7 +113,7 @@ fun TopMenu(){
                     .clickable { NoteVariables.isCalendarVisible = !NoteVariables.isCalendarVisible },
                 tint = Color.Unspecified,   // SVG Original color
                 contentDescription = "Calendar Icon")
-        }
+        } // Top Menu를 구성하는 composable
         Spacer(modifier = Modifier      // Top Menu하단에 회색줄 생성
             .fillMaxWidth()
             .height(1.dp)
@@ -122,8 +122,14 @@ fun TopMenu(){
         if (NoteVariables.isCalendarVisible) {
             CalendarMenu(onDismiss = { NoteVariables.isCalendarVisible = false })
         }
+        Text(text = "\n")
+        Text(text = "New memo : ${NoteVariables.addNewMemo}")
+        Text(text = "Selected Date: ${NoteVariables.selectedDate}")
+        Text(text = "Today's Date: ${NoteVariables.currentDate}")
     }
 }
+
+
 
 // preview code
 @Preview

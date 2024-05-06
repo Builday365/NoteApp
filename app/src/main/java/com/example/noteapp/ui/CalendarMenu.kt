@@ -1,6 +1,5 @@
 package com.example.noteapp.ui
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -95,11 +94,11 @@ fun DaysGrid() {
     var calendarStartDate = currentMonthFirstDay.minusDays(numBlankCells.toLong())
 
     // Display log
-    Log.d("DatePicker", "=========================================================")
-    Log.d("DatePicker", "calendar Start Date : $calendarStartDate")
-    Log.d("DatePicker", "NoteVariables.selectedDate : ${NoteVariables.selectedDate}")
-    Log.d("DatePicker", "NoteVariables.currentDate : ${NoteVariables.currentDate}")
-    Log.d("DatePicker", "=========================================================")
+    //Log.d("DatePicker", "=========================================================")
+    //Log.d("DatePicker", "calendar Start Date : $calendarStartDate")
+    //Log.d("DatePicker", "NoteVariables.selectedDate : ${NoteVariables.selectedDate}")
+    //Log.d("DatePicker", "NoteVariables.currentDate : ${NoteVariables.currentDate}")
+    //Log.d("DatePicker", "=========================================================")
 
     // Column to hold the days grid
     Column{
