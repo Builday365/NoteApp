@@ -1,5 +1,6 @@
 package com.example.noteapp.ui
 
+import MemoInput
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,7 +36,7 @@ import java.util.Locale
 @Composable
 
 fun TopMenu(){
-
+    val (memoText, setMemoText) = remember { mutableStateOf("") }
     /* 변수를 class로 분리함
     var currentDate by remember { mutableStateOf(LocalDate.now()) } // 현재 날짜를 기억 하는 변수
     val iconResId = when (currentDate.dayOfWeek) {  // Check the current day of the week and select a vector image accordingly.
@@ -122,13 +125,20 @@ fun TopMenu(){
         if (NoteVariables.isCalendarVisible) {
             CalendarMenu(onDismiss = { NoteVariables.isCalendarVisible = false })
         }
+        if (NoteVariables.isMemoVisible) {
+            MemoInput(
+                memoText = memoText,
+                onTextChange = setMemoText,
+                onSaveClick = { /* 저장 버튼 클릭 시 수행할 작업 정의 */ },
+                onDismiss = { NoteVariables.isMemoVisible = false }
+            )
+        }
         Text(text = "\n")
-        Text(text = "New memo : ${NoteVariables.addNewMemo}")
+        Text(text = "New memo : ${NoteVariables.isMemoVisible}")
         Text(text = "Selected Date: ${NoteVariables.selectedDate}")
         Text(text = "Today's Date: ${NoteVariables.currentDate}")
     }
 }
-
 
 
 // preview code

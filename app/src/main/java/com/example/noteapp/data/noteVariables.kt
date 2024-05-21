@@ -12,7 +12,7 @@ class NoteVariables {
         var currentDate: LocalDate by mutableStateOf(LocalDate.now())
         var selectedDate: LocalDate by mutableStateOf(LocalDate.now())
         var isCalendarVisible by mutableStateOf(false) // isCalendarVisible를 클래스 내부에 직접 선언
-        var addNewMemo: Boolean by mutableStateOf(false) // addNewMemo 변수 선언
+        var isMemoVisible: Boolean by mutableStateOf(false) // addNewMemo 변수 선언
         val iconResId: Int
             get() {
                 return when (selectedDate.dayOfWeek) { // selectedDate로 수정
